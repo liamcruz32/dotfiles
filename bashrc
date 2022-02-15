@@ -5,7 +5,7 @@ export EDITOR="$VISUAL"
 
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ls='ls -lh'
+alias ll='ls -lh'
 
 alias mv='mv -v'
 alias cp='cp -v'
