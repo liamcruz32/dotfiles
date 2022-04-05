@@ -1,22 +1,11 @@
 #!/bin/sh
 
-i3=(config monitor.sh)
-i3status=(
-
-
-if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]
-then
-        mkdir -pv $HOME/.vim/autoload
-        mkdir -v $HOME/.vim/plugged
-        cp plug.vim $HOME/.vim/autoload/
-fi
-
-for FILE in vimrc bashrc tmux.conf
+pwd=$PWD
+for x in i3 i3status dunst rofi
 do
-        if [[ -f "$HOME/.$FILE" ]]
-        then
-            mv "$HOME/.$FILE" "$HOME/.$FILE.bak"
-        fi
-        ln -s "$FILE" "$HOME/.$FILE"
+    for y in $(ls $x)
+    do
+        ln -s -f "$PWD/$x/$y" "$HOME/.config/$x/"
+    done
 done
 

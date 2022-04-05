@@ -30,7 +30,7 @@ filebrowser {
   text-color:		@fg;
 }
 
-@import "./Themes/style.rasi"
+@import "./style.rasi"
 
 mainbox { children: [ mode-switcher, inputbar, listview ]; }
 
