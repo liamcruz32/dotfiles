@@ -10,3 +10,5 @@ alias ll='ls -lh'
 alias mv='mv -v'
 alias cp='cp -v'
 alias mkdir='mkdir -pv'
+
+alias ..='cd ..'

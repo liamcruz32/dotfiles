@@ -1,6 +1,8 @@
 #!/bin/sh
 
-pwd=$PWD
+i3=(config monitor.sh)
+i3status=(
+
 
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]
 then
@@ -15,6 +17,6 @@ do
         then
             mv "$HOME/.$FILE" "$HOME/.$FILE.bak"
         fi
-        ln -s -f "$PWD/$FILE" "$HOME/.$FILE"
+        ln -s "$FILE" "$HOME/.$FILE"
 done
 
