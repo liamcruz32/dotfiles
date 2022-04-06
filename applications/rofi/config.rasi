@@ -23,11 +23,11 @@ filebrowser {
 
 * {
   bg:		    #303030;
-  fg:	    	#05E289;
+  fg:	    	#eeeeee;
   bgAlt:        #1B1E25;
-  button:		#05E289;
+  button:		#b48ead;
   background-color:	@bg;
-  text-color:		@fg;
+  text-color:		#eeeeee;
 }
 
 @import "./style.rasi"
@@ -39,8 +39,8 @@ window {
   width:            650px;
   border-radius:	3px;
   height:           500px;
-  border:           12px;
-  border-color:     @bg;
+  border:           2px;
+  border-color:     @fg;
 }
 
 inputbar {
@@ -74,7 +74,7 @@ listview {
 
 element {
   orientation:		vertical;
-  margin:		2px 3px 2px 3px;
+  margin:		    10px 10px 10px 10px;
   border-radius:	3px;
   background-color:	@bgAlt;
 }
@@ -88,7 +88,7 @@ element-text {
 
 element selected {
   background-color:	@fg;
-  text-color:		@bgAlt;
+  text-color:		@bg;
   border-radius:	3px;
 }
 
@@ -110,5 +110,5 @@ button {
 button selected {
   padding:		8px;
   background-color:	@fg;
-  text-color:		@bgAlt;
+  text-color:		@bg;
 }

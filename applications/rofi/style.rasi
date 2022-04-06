@@ -1,11 +1,11 @@
 
 * {
 bg: #303030;
-bgAlt: #3b3b3b;
-fg: #88C0D0;
-button: #3b3b3b;
+bgAlt: #4f4f4f;
+fg: #b48ead;
+button: #303030;
 background-color: @bg;
-text-color: @fg;
+text-color: #eeeeee;
 }
 
 configuration {
