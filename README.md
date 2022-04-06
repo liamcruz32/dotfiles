@@ -1,5 +1,13 @@
 i3 workstation configuration files
 
+These are my configuration files for my laptop. My recommended installed applications are listed
+
+    install.sh
+        Creates symlinks for all application configuration file and themes
+    terminal.sh
+        Creates symlinks for vimrc, bashrc, and tmux.conf 
+
+
 Workstation Applications:
 
 	Window Manager
@@ -11,8 +19,12 @@ Workstation Applications:
 		dunst
 		picom
 		lightdm
+        pulseaudio
         nitrogen
-        pavucontrol
+		vim
+		tmux
+		git
+		htop
 
 
 	Applications
@@ -21,18 +33,11 @@ Workstation Applications:
 		alacritty
 		firefox
 		thunar
+        pavucontrol
 		gimp
 		audacity
 		crawl
 		nm-applet
 		transmission-gtk
         xrandr
-
-
-	Terminal
-
-		vim
-		tmux
-		git
-		htop
 		
