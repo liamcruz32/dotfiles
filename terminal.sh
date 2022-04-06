@@ -6,15 +6,15 @@ if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]
 then
         mkdir -pv $HOME/.vim/autoload
         mkdir -v $HOME/.vim/plugged
-        cp plug.vim $HOME/.vim/autoload/
+        cp $PWD/terminal/plug.vim $HOME/.vim/autoload/
 fi
 
-for FILE in vimrc bashrc tmux.conf
+for x in $(ls terminal/files)
 do
-        if [[ -f "$HOME/.$FILE" ]]
+        if [[ -f "$HOME/.$x" ]]
         then
-            mv "$HOME/.$FILE" "$HOME/.$FILE.bak"
+            mv "$HOME/.$x" "$HOME/.$x.bak"
         fi
-        ln -s -f "$PWD/$FILE" "$HOME/.$FILE"
+        ln -s -f "$PWD/terminal/files/$x" "$HOME/.$x"
 done
 
