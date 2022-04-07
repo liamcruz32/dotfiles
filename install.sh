@@ -11,3 +11,4 @@ done
 
 cp -r "$PWD/appearance/themes/vimix-compact-dark" "$HOME/.themes/"
 cp -r "$PWD/appearance/icons/Mint-Y-Dark-Aqua" "$HOME/.icons/"
+cp -r "$PWD/appearance/icons/Adwaita" "$HOME/.icons/"

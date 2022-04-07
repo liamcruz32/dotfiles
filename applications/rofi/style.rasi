@@ -1,7 +1,7 @@
 
 * {
 bg: #303030;
-bgAlt: #4f4f4f;
+bgAlt: #404040;
 fg: #b48ead;
 button: #303030;
 background-color: @bg;

@@ -46,7 +46,7 @@ window {
 inputbar {
   children:		[ entry ];
   expand:		false;
-  padding:		5px 10px 5px 10px;
+  padding:		5px 10px 15px 10px;
 }
 
 prompt { 
@@ -74,7 +74,7 @@ listview {
 
 element {
   orientation:		vertical;
-  margin:		    10px 10px 10px 10px;
+  margin:		    2px 10px 2px 10px;
   border-radius:	3px;
   background-color:	@bgAlt;
 }

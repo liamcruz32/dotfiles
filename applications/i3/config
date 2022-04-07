@@ -57,6 +57,8 @@ bindsym $mod+f exec --no-startup-id thunar
 # Layout #
 ##########
 
+workspace_layout tabbed
+
 bindsym $mod+Shift+q kill
 bindsym $mod+s split h
 bindsym $mod+Shift+s split v
