@@ -9,5 +9,5 @@ do
     done
 done
 
-cp -r "$PWD/themes/vimix-compact-dark" "$HOME/.themes/"
-cp -r "$PWD/themes/Tela-circle-dark" "$HOME/.icons/"
+cp -r "$PWD/appearance/themes/vimix-compact-dark" "$HOME/.themes/"
+cp -r "$PWD/appearance/icons/Mint-Y-Dark-Aqua" "$HOME/.icons/"
