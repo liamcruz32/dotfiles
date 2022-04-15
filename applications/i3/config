@@ -49,7 +49,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym $mod+Return exec --no-startup-id  alacritty
-bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+b exec --no-startup-id chromium
 bindsym $mod+f exec --no-startup-id thunar
 
 

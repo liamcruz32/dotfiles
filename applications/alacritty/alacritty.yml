@@ -41,7 +41,7 @@ font:
     family: Input
     style: Italic
 
-  size: 15
+  size: 13
 
   offset:
     x: 0
@@ -61,7 +61,7 @@ colors:
   normal:
     black:   '#303030'
     red:     '#a54242'
-    green:   '#8c9440'
+    green:   '#4cba4c'
     yellow:  '#e5e15e'
     blue:    '#5f819d'
     magenta: '#85678f'
@@ -72,7 +72,7 @@ colors:
   bright:
     black:   '#686c6e'
     red:     '#cc6666'
-    green:   '#b5bd68'
+    green:   '#72df72'
     yellow:  '#f5f292'
     blue:    '#81a2be'
     magenta: '#b294bb'
