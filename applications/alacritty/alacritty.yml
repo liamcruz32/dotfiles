@@ -52,32 +52,30 @@ font:
     y: 0
 
 draw_bold_text_with_bright_colors: true
-
 colors:
   primary:
     background: '#303030'
-    foreground: '#eeeeee'
-
+    foreground: '#d0d0d0'
+    
   normal:
-    black:   '#303030'
-    red:     '#a54242'
-    green:   '#4cba4c'
-    yellow:  '#e5e15e'
-    blue:    '#5f819d'
-    magenta: '#85678f'
-    cyan:    '#5e8d87'
-    white:   '#b1b6bc'
-
-  # Bright colors
+    black:   '#4e4e4e'
+    red:     '#d68787'
+    green:   '#5f865f'
+    yellow:  '#d8af5f'
+    blue:    '#85add4'
+    magenta: '#d7afaf'
+    cyan:    '#87afaf'
+    white:   '#d0d0d0'
+    
   bright:
-    black:   '#686c6e'
-    red:     '#cc6666'
-    green:   '#72df72'
-    yellow:  '#f5f292'
-    blue:    '#81a2be'
-    magenta: '#b294bb'
-    cyan:    '#8abeb7'
-    white:   '#e5e5e5'
+    black:   '#626262'
+    red:     '#d75f87'
+    green:   '#87af87'
+    yellow:  '#ffd787'
+    blue:    '#add4fb'
+    magenta: '#ffafaf'
+    cyan:    '#87d7d7'
+    white:   '#e4e4e4'
 
   indexed_colors: []
 
