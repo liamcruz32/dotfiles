@@ -7,7 +7,6 @@ font pango: Noto Sans Bold 11
 focus_follows_mouse no
 
 
-############################
 ## AUTOSTART APPLICATIONS ##
 ############################
 
@@ -202,24 +201,23 @@ new_window pixel 3
 gaps inner 6
 gaps outer 3
 
-set $black	    	#000000
-set $darkgrey		#343B41
-set $mediumgrey		#8b8b8b
-set $grey		    #b0b5bd
-set $darkblue		#1B323D
-set $lightblue		#899FAD
-set $urgentred		#e53935
-set $purple		    #e345ff
-set $yellowbrown	#e1b700
-set $bg             #181A20
-set $pink           #FCD0A4
+set $Black                          #263238
+set $Red                            #EC5F67
+set $Green                          #8BD649
+set $Yellow                         #FFCC00
+set $Blue                           #89DDFF
+set $Magenta                        #82AAFF
+set $Cyan                           #80CBC4
+set $White                          #CDD3DE
+set $Bright_Black                   #707880
+set $Bright_White                   #FFFFFF 
 
 ## CLASS	           	    BORDER      BGROUND		TEXT		INDICATOR   	CHILD_BORDER
 ############################################################################################
-client.focused		    	$lightblue  $lightblue  $black  	$lightblue	    $lightblue
-client.unfocused	    	$bg     	$bg     	$mediumgrey	$mediumgrey	    $bg
-client.focused_inactive		$darkgrey	$darkgrey	$grey		$black		    $darkgrey
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+client.focused		        $White      $White      $Black  	$White	        $White
+client.unfocused	    	$Black     	$Black     	$Bright_Black	$White	    $Black
+client.focused_inactive		$Black     	$Black     	$Bright_Black	$White	    $Black
+client.urgent		    	$Red    	$Red	    $white		$Yellow	        $Yellow
 
 
 #########################
@@ -234,16 +232,16 @@ bar {
     strip_workspace_numbers yes
 
     colors {
-        separator          $purple
-		background         $darkgrey
-		statusline         $white
+        separator          $Magenta
+		background         $Black
+		statusline         $White
 
         ## CLASS       		BORDER 		        BG		    TEXT	    INDICATOR
         ##########################################################################
-		focused_workspace	$mediumgrey	   	    $grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+		focused_workspace	$Black	   	        $White		$Black	    $Magenta
+		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$Magenta
+		inactive_workspace	$Black   		$Black	$grey		$Magenta
+		urgent_workspace	$Red    	    	$Red       	$White		$Magenta
 	}
 }
 
