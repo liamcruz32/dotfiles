@@ -1,96 +1,80 @@
-############################
-# My i3 Configuration File #
-############################
+#######################
+## MY i3 CONFIG FILE ##
+#######################
 
-set $mod Mod4 
-font pango:mononoki Nerd Font:style=Regular:size=10
-
-##########
-# Colors #
-##########
-
-gaps inner 12
-default_border pixel 2
-
-# colour of                 Border    Background   Text     Indicator Child Border
-client.focused              #b48ead    #b48ead    #303030    #d8dee8    #b48ead
-client.focused_inactive     #303030    #303030    #d8dee8    #303030    #303030
-client.unfocused            #303030    #303030    #d8dee8    #303030    #303030
-client.urgent               #303030    #303030    #d8dee8    #303030    #303030
-client.placeholder          #303030    #303030    #d8dee8    #303030    #303030
-client.background           #303030
-
-####################
-# Startup Commands #
-####################
-
-exec_always --no-startup-id bash ~/.config/i3/monitor.sh
-exec_always --no-startup-id nitrogen --restore
-exec --no-startup-id picom -b
-exec --no-startup-id nm-applet
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-
-#########################
-# Volume button mapping #
-#########################
-
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-
-########################
-# Application Bindings #
-########################
-
-bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+Tab exec --no-startup-id rofi -show window
-bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+b exec firefox
-bindsym $mod+f exec xfce4-terminal -x ranger
-
-
-##########
-# Layout #
-##########
-
-bindsym $mod+Shift+q kill
-bindsym $mod+s split h
-bindsym $mod+Shift+s split v
-
-bindsym $mod+r layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-bindsym $mod+a focus parent
-
-
-##############
-# Navigation #
-##############
-#                                 Change Focus
-##############################################
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+set $mod Mod4
+font pango: Noto Sans Bold 11
 focus_follows_mouse no
 
-#                          Move Focused Window
-##############################################
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
 
-#                              Workspace Names
-##############################################
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+############################
+## AUTOSTART APPLICATIONS ##
+############################
+
+exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+
+exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id sleep 2 && nitrogen --restore
+exec --no-startup-id /usr/bin/env protonmail-bridge --noninteractive
+
+
+######################
+## WORKSPACE LAYOUT ##
+######################
+
+workspace_layout default
+
+bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+
+###################
+## FLOATING MODE ##
+###################
+
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+## floating rules 
+####################################
+
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Gpick" instance="gpick"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [window_role="About"] floating enable
+
+
+#####################
+## WORKSPACE RULES ##
+#####################
+
+## WORKSPACE OUTPUT
+##############################
+# workspace $ws1 output VGA-0
+# workspace $ws2 output VGA-0
+# workspace $ws3 output HDMI-0
+# workspace $ws4 output HDMI-0
+# workspace $ws5 output HDMI-0
+
+## WORKSPACE NAMES
+#################################
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -98,80 +82,168 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-#                          Switch to Workspace
-##############################################
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+## SET APPLICATIONS TO OPEN ON SPECIFIC WORKSPACE
+#################################################
+assign [class="Xfce4-terminal"] $ws1
+assign [class="(?i)firefox"] $ws2
+assign [class="thunderbird"] $ws3
+assign [class="Thunar"] $ws4
+assign [class="TelegramDesktop"] $ws5
 
-#                            Move to Workspace
-##############################################
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+for_window [class=Xfce4-terminal] focus
+for_window [class=(?i)firefox] focus
+for_window [class=Thunar] focus
+for_window [class=Thunderbird] focus
+for_window [class=TelegramDesktop] focus
 
 
-####################
-# Floating Windows #
-####################
+#################################
+## WINDOW NAVIGATION AND FOCUS ##
+#################################
 
-floating_modifier $mod
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-floating_minimum_size 75x50
-floating_maximum_size 640x480
+## SWITCH TO WORKSPACE
+#################################
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  $ws5
+bindsym $mod+6    workspace  $ws6
+bindsym $mod+7    workspace  $ws7
+bindsym $mod+8    workspace  $ws8
+bindsym $mod+9    workspace  $ws9
+bindsym $mod+0    workspace  $ws10
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+## MOVE FOCUSED CONTAINER TO WORKSPACE
+#########################################################
+bindsym $mod+Shift+1    move container to workspace  $ws1
+bindsym $mod+Shift+2    move container to workspace  $ws2
+bindsym $mod+Shift+3    move container to workspace  $ws3
+bindsym $mod+Shift+4    move container to workspace  $ws4
+bindsym $mod+Shift+5    move container to workspace  $ws5
+bindsym $mod+Shift+6    move container to workspace  $ws6
+bindsym $mod+Shift+7    move container to workspace  $ws7
+bindsym $mod+Shift+8    move container to workspace  $ws8
+bindsym $mod+Shift+9    move container to workspace  $ws9
+bindsym $mod+Shift+0    move container to workspace  $ws10
+
+## CHANGE FOCUS 
+#########################
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+## MOVE FOCUSED WINDOW 
+##############################
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## SPLIT CONTAINER
+############################
+bindsym $mod+Shift+s split h
+bindsym $mod+s split v
 
 
-###################
-# System Commands #
-###################
+##########################
+## FUNCTION KEYBINDINGS ##
+##########################
 
+bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
+bindsym $mod+p exec ~/.config/i3/scripts/blur-lock
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
+
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+
+bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
+bindsym XF86MonBrightnessDown exec xbacklight -5 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
+bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 
-###############
-# Resize Mode #
-###############
+###########################
+## APPLICATION SHORTCUTS ##
+###########################
 
-bindsym $mod+Shift+Return mode "resize"
-mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+bindsym $mod+b exec --no-startup-id /usr/bin/firefox
+bindsym $mod+f exec --no-startup-id /usr/bin/thunar
+bindsym $mod+n exec --no-startup-id /usr/bin/thunderbird
+bindsym $mod+Return exec xfce4-terminal
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-        }
+bindsym $mod+d exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+Shift+d exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
+
+
+###################################
+## COLOR AND APPEARANCE SETTINGS ##
+###################################
+
+new_window pixel 3
+gaps inner 6
+gaps outer 3
+
+set $black	    	#000000
+set $darkgrey		#343B41
+set $mediumgrey		#8b8b8b
+set $grey		    #b0b5bd
+set $darkblue		#1B323D
+set $lightblue		#899FAD
+set $urgentred		#e53935
+set $purple		    #e345ff
+set $yellowbrown	#e1b700
+set $bg             #181A20
+set $pink           #FCD0A4
+
+## CLASS	           	    BORDER      BGROUND		TEXT		INDICATOR   	CHILD_BORDER
+############################################################################################
+client.focused		    	$lightblue  $lightblue  $black  	$lightblue	    $lightblue
+client.unfocused	    	$bg     	$bg     	$mediumgrey	$mediumgrey	    $bg
+client.focused_inactive		$darkgrey	$darkgrey	$grey		$black		    $darkgrey
+client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+
+
+#########################
+## STATUS BAR SETTINGS ##
+#########################
 
 bar {
-        colors {
-        background #303030
-        statusline #303030
-        separator #4b5262
+    font pango: Noto Sans Bold 10
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    position bottom
+    tray_padding 0
+    strip_workspace_numbers yes
 
-        # colour of border, background, and text
-        focused_workspace       #303030 #bf616a #d8dee8
-        active_workspace        #303030 #303030 #d8dee8
-        inactive_workspace      #303030 #303030 #d8dee8
-        urgent_workspace       #303030 #ebcb8b #303030
-    }
-        status_command i3status
+    colors {
+        separator          $purple
+		background         $darkgrey
+		statusline         $white
+
+        ## CLASS       		BORDER 		        BG		    TEXT	    INDICATOR
+        ##########################################################################
+		focused_workspace	$mediumgrey	   	    $grey		$darkgrey	$purple
+		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+	}
 }
+

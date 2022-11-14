@@ -12,3 +12,16 @@ alias cp='cp -v'
 alias mkdir='mkdir -pv'
 
 alias ..='cd ..'
+alias ...='cd .. && cd ..'
+alias ....='cd .. && cd .. && cd ..'
+alias .....='cd .. && cd .. && cd .. && cd ..'
+
+alias install='yay -S'
+alias remove='yay -Rsu'
+alias update='yay -Syu'
+alias search='yay -Ss'
+alias installed='yay -Qs'
+
+alias crawls='ssh joshua@crawl.akrasiac.org'
+alias roguearcade-admin='ssh root@roguearcade.duckdns.org -p 23515'
+alias roguearcade='ssh play@roguearcade.duckdns.org -p 23515'
