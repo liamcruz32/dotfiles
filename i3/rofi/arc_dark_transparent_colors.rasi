@@ -3,10 +3,10 @@
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
 * {
-    selected-normal-foreground:  rgba ( 238, 238, 238, 100 % );
-    foreground:                  rgba ( 205, 211, 222, 100 % );
+    selected-normal-foreground:  #eeeeee;
+    foreground:                  #222222;
     normal-foreground:           @foreground;
-    alternate-normal-background: rgba ( 45, 48, 59, 1 % );
+    alternate-normal-background: #CDD3DE;
     red:                         rgba ( 220, 50, 47, 100 % );
     selected-urgent-foreground:  rgba ( 249, 249, 249, 100 % );
     blue:                        rgba ( 38, 139, 210, 100 % );
@@ -16,11 +16,11 @@
     lightbg:                     rgba ( 238, 232, 213, 100 % );
     selected-active-foreground:  rgba ( 249, 249, 249, 100 % );
     alternate-active-background: rgba ( 55, 71, 79, 88 % );
-    background:                  rgba ( 55, 71, 79, 88 % );
+    background:                  #CDD3DE;
     alternate-normal-foreground: @foreground;
-    normal-background:           rgba ( 55, 71, 79, 88 % );
+    normal-background:           @background;
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 112, 120, 128, 100 % );
+    selected-normal-background:  #485e94;
     border-color:                rgba ( 124, 131, 137, 100 % );
     spacing:                     2;
     separatorcolor:              rgba ( 45, 48, 59, 1 % );

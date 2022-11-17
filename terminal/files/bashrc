@@ -6,6 +6,10 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         source "$BASE16_SHELL/profile_helper.sh"
 base16_materia
 
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+        tmux new-session -A -s main
+fi
+
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -30,5 +34,5 @@ alias search='yay -Ss'
 alias installed='yay -Qs'
 
 alias crawls='ssh joshua@crawl.akrasiac.org'
-alias roguearcade-admin='ssh root@roguearcade.duckdns.org -p 23515'
+alias server-admin='ssh root@roguearcade.duckdns.org -p 23515'
 alias roguearcade='ssh play@roguearcade.duckdns.org -p 23515'

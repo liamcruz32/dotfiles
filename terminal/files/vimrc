@@ -5,7 +5,6 @@ filetype plugin on
 filetype indent on
 syntax on
 let mapleader=" "
-set nocompatible
 set number relativenumber
 set cursorline
 set tabstop=4
@@ -18,6 +17,7 @@ set laststatus=2
 set noshowmode
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb
+let g:python_highlight_all = 1
 
 " }}}
 
@@ -25,13 +25,15 @@ au GUIEnter * set vb t_vb
 " PLUGINS ---------------------------------------------------------------- {{{
 
 call plug#begin('~/.vim/plugged')
+    Plug 'vim-python/python-syntax'
     Plug 'preservim/nerdtree'
+    Plug 'preservim/vimux'
     Plug 'vim-syntastic/syntastic'
-    Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'itchyny/lightline.vim'
     Plug 'chriskempson/base16-vim'
 call plug#end()
 
@@ -50,18 +52,29 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 " MAPPINGS --------------------------------------------------------------- {{{
 
-nnoremap <leader>/ :Lines<CR>
-nnoremap ff :NERDTreeToggle<CR>
+nnoremap <C-q> :q<CR>
+nnoremap <silent><leader>/ :Lines<CR>
+nnoremap <silent><leader>f :NERDTreeToggle<CR>
 inoremap kk <esc>
 inoremap jj <esc>
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 
-nnoremap <C-a><CR> :vsplit  
-nnoremap <C-n> :tabnew 
+nnoremap <silent><leader>1 1gt<CR>
+nnoremap <silent><leader>2 2gt<CR>
+nnoremap <silent><leader>3 3gt<CR>
+nnoremap <silent><leader>4 4gt<CR>
+nnoremap <silent><leader>5 5gt<CR>
+nnoremap <silent><leader>6 6gt<CR>
+nnoremap <silent><leader>7 7gt<CR>
+nnoremap <silent><leader>8 8gt<CR>
+nnoremap <silent><leader>9 9gt<CR>
+
+nnoremap <silent><leader><CR> :vsplit  
+nnoremap <silent><leader>n :tabnew 
 
 set splitbelow
 set splitright
@@ -82,7 +95,7 @@ augroup END
 " STATUS LINE ------------------------------------------------------------ {{{
 let g:rehash256 = 1
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'seoul256'
       \ }
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
