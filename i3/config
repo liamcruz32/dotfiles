@@ -84,7 +84,7 @@ assign [class="thunderbird"] $ws4
 assign [class="Xfce4-terminal"] $ws5
 
 for_window [class=Xfce4-terminal] focus
-for_window [class=(?i)firefox] focus # for_window [class=Thunar] focus
+for_window [class=firefox] focus
 for_window [class=thunderbird] focus
 
 
@@ -195,7 +195,7 @@ set $Yellow                         #FFCC00
 set $Blue                           #485e94
 set $Magenta                        #82AAFF
 set $Cyan                           #80CBC4
-set $White                          #CDD3DE
+set $White                          #E7E8EB
 set $Bright_Black                   #707880
 set $Bright_White                   #FFFFFF 
 
