@@ -7,7 +7,7 @@ syntax on
 let mapleader=" "
 set number relativenumber
 set cursorline
-set tabstop=4
+set tabstop=2
 set expandtab
 set ignorecase
 set showcmd
@@ -17,30 +17,20 @@ set laststatus=2
 set noshowmode
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb
-let g:python_highlight_all = 1
 
 " }}}
 
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
-call plug#begin('~/.vim/plugged')
-    Plug 'vim-python/python-syntax'
-    Plug 'preservim/nerdtree'
-    Plug 'vim-syntastic/syntastic'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
-    Plug 'preservim/vimux'
+call plug#begin()
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
     Plug 'itchyny/lightline.vim'
-    Plug 'chriskempson/base16-vim'
+    Plug 'Soares/base16.nvim'
 call plug#end()
-
-let base16colorspace=256
-if exists('$BASE16_THEME')
-      \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
-    let base16colorspace=256
-    colorscheme base16-$BASE16_THEME
-endif
+colorscheme macintosh
 
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -49,29 +39,17 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 
 " MAPPINGS --------------------------------------------------------------- {{{
+nmap <C-q> :q<CR>
+nmap <silent><leader>/ :Telescope find_files<CR>
+imap kk <esc>
+imap jj <esc>
 
-nnoremap <C-q> :q<CR>
-nnoremap <silent><leader>f :NERDTreeToggle<CR>
-nnoremap <leader>vp :VimuxPromptCommand<CR>
-inoremap kk <esc>
-inoremap jj <esc>
+nmap <C-j> <C-W><C-J>
+nmap <C-k> <C-W><C-K>
+nmap <C-l> <C-W><C-L>
+nmap <C-h> <C-W><C-H>
 
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
-
-nnoremap <silent><leader>1 1gt<CR>
-nnoremap <silent><leader>2 2gt<CR>
-nnoremap <silent><leader>3 3gt<CR>
-nnoremap <silent><leader>4 4gt<CR>
-nnoremap <silent><leader>5 5gt<CR>
-nnoremap <silent><leader>6 6gt<CR>
-nnoremap <silent><leader>7 7gt<CR>
-nnoremap <silent><leader>8 8gt<CR>
-nnoremap <silent><leader>9 9gt<CR>
-
-nnoremap <C-n> :tabnew 
+nmap <C-n> :tabnew 
 
 set splitbelow
 set splitright
@@ -86,13 +64,15 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+set timeoutlen=0
+
 " }}}
 
 
 " STATUS LINE ------------------------------------------------------------ {{{
 let g:rehash256 = 1
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor'
+      \ 'colorscheme': 'ayu_light'
       \ }
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]

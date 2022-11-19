@@ -17,11 +17,6 @@ done
 echo "Linking WM config and Status Bar Config"
 for conf in config i3blocks.conf
 do
-    if [[ -f "$i3Dir/$conf" ]]
-    then
-        mv $i3Dir/$conf $i3Dir/$conf.bak
-    fi
-    
     ln -s -f "$PWD/$conf" "$i3Dir/$conf"
 done
 

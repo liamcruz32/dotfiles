@@ -33,6 +33,8 @@ alias update='yay -Syu'
 alias search='yay -Ss'
 alias installed='yay -Qs'
 
-alias crawls='ssh joshua@crawl.akrasiac.org'
 alias server-admin='ssh root@roguearcade.duckdns.org -p 23515'
 alias roguearcade='ssh play@roguearcade.duckdns.org -p 23515'
+
+alias attach='tmux attach'
+alias new='tmux new-session -d -s'
