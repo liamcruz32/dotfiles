@@ -7,12 +7,13 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 base16_materia
 
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-        tmux new-session -A -s main
+        tmux new-session -A -s Main
 fi
 
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export LANG=en_US.UTF-8
 
 alias ls='ls --color=auto'
 alias la='ls -a'
@@ -38,3 +39,5 @@ alias roguearcade='ssh play@roguearcade.duckdns.org -p 23515'
 
 alias attach='tmux attach'
 alias new='tmux new-session -d -s'
+
+alias vpn='protonvpn-cli'

@@ -5,6 +5,7 @@ pwd=$PWD
 # nvim Plugins
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]
 then
+        mkdir -pv "$HOME/.vim/autoload"
         sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
                        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi

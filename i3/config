@@ -3,7 +3,7 @@
 #######################
 
 set $mod Mod4
-font pango: Source Code Pro Medium 10
+font pango: Noto Sans Regular 10
 # font pango: Noto Sans Bold 10
 focus_follows_mouse no
 
@@ -18,7 +18,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 exec --no-startup-id ~/.screenlayout/monitor.sh
-exec --no-startup-id sleep 2 && nitrogen --restore
+exec_always --no-startup-id sleep 2 && nitrogen --restore
 exec --no-startup-id /usr/bin/env protonmail-bridge --noninteractive
 
 
@@ -26,7 +26,7 @@ exec --no-startup-id /usr/bin/env protonmail-bridge --noninteractive
 ## WORKSPACE LAYOUT ##
 ######################
 
-workspace_layout default
+workspace_layout tabbed
 
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+w layout tabbed
@@ -44,18 +44,16 @@ bindsym $mod+space focus mode_toggle
 ## floating rules 
 ####################################
 
-for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
-for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
-for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
 for_window [class="Gpick" instance="gpick"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
-for_window [class="qt5ct" instance="qt5ct"] floating enable
-for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [class="Pamac-manager"] floating enable
+for_window [class="Protonvpn"] floating enable
 for_window [window_role="About"] floating enable
+for_window [title="Steam - News"] floating enable
+for_window [title="Friends List"] floating enable
 
+for_window [class="Xfce4-terminal"] fullscreen enable
 
 #####################
 ## WORKSPACE RULES ##
@@ -71,17 +69,17 @@ for_window [window_role="About"] floating enable
 
 ## WORKSPACE NAMES
 #################################
-set $ws1 "1: Main "
-set $ws2 "2: Scratch "
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4"
+set $ws5 "5"
 
 ## SET APPLICATIONS TO OPEN ON SPECIFIC WORKSPACE
 #################################################
-assign [class="(?i)firefox"] $ws3
-assign [class="thunderbird"] $ws4
-assign [class="Xfce4-terminal"] $ws5
+assign [class="(?i)firefox"] $ws2
+assign [class="thunderbird"] $ws3
+assign [class=Xfce4-terminal] $ws1
 
 for_window [class=Xfce4-terminal] focus
 for_window [class=firefox] focus
@@ -169,16 +167,9 @@ bindsym Print exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png && no
 bindsym $mod+b exec --no-startup-id /usr/bin/firefox
 bindsym $mod+f exec --no-startup-id /usr/bin/thunar
 bindsym $mod+m exec --no-startup-id /usr/bin/thunderbird
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 
 bindsym $mod+d exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
-
-#CapsLock indicator
-mode "CAPSLOCK" {
-    bindsym Caps_Lock mode "default"
-}
-bindsym Caps_Lock mode "CAPSLOCK"
-
 
 ###################################
 ## COLOR AND APPEARANCE SETTINGS ##
@@ -196,14 +187,15 @@ set $Blue                           #485e94
 set $Magenta                        #82AAFF
 set $Cyan                           #80CBC4
 set $White                          #E7E8EB
-set $Bright_Black                   #707880
-set $Bright_White                   #FFFFFF 
+set $BBlack                         #707880
+set $BWhite                         #FFFFFF 
+set $frame                          #485e94
 
 ## CLASS	           	    BORDER      BGROUND		TEXT		INDICATOR   	CHILD_BORDER
 ############################################################################################
-client.focused		        $White      $White      $Black  	$White	        $White
-client.unfocused	    	$Black     	$Black     	$Bright_Black	$White	    $Black
-client.focused_inactive		$Black     	$Black     	$Bright_Black	$White	    $Black
+client.focused		        $BWhite     $BWhite    $Black  	$BWhite	        $BWhite
+client.unfocused	    	$White      $White      $BBlack     $White          $White
+client.focused_inactive		$Black      $Black	    $White      $Black	        $Black
 client.urgent		    	$Red    	$Red	    $white		$Yellow	        $Yellow
 
 
@@ -213,15 +205,15 @@ client.urgent		    	$Red    	$Red	    $white		$Yellow	        $Yellow
 
 bar {
     font pango: Noto Sans Regular 11
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    position bottom
-    tray_padding 0
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    position top
+    tray_padding 2
     strip_workspace_numbers yes
 
     colors {
         separator          $Magenta
 		background         $White
-		statusline         #222222
+		statusline         #111111
 
         ## CLASS       		BORDER 		        BG		    TEXT	    INDICATOR
         ##########################################################################

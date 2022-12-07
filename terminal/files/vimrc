@@ -1,5 +1,4 @@
 " BASIC SETTINGS  ---------------------------------------------------------------- {{{
-
 filetype on
 filetype plugin on
 filetype indent on
@@ -23,14 +22,16 @@ let g:python_highlight_all = 1
 
 
 " PLUGINS ---------------------------------------------------------------- {{{
-
 call plug#begin('~/.vim/plugged')
-    Plug 'vim-python/python-syntax'
+    " Utilities ------------------------------
     Plug 'preservim/nerdtree'
-    Plug 'vim-syntastic/syntastic'
+    Plug 'preservim/vimux'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
-    Plug 'preservim/vimux'
+    " Language -------------------------------
+    Plug 'vim-python/python-syntax'
+    Plug 'dense-analysis/ale'
+    " Appearance -----------------------------
     Plug 'itchyny/lightline.vim'
     Plug 'chriskempson/base16-vim'
 call plug#end()
