@@ -2,7 +2,9 @@
 
 pwd=$PWD
 
-# nvim Plugins
+## Vim Plugins
+################
+
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]
 then
         mkdir -pv "$HOME/.vim/autoload"
@@ -10,29 +12,48 @@ then
                        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
 
-# TMUX plugins
+
+## TMUX plugins
+#################
+
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
 then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Base16 colors
+
+## Base16 colors
+##################
+
 if [[ ! -d "$HOME/.config/base16-shell" ]]
 then
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 fi
 
-# ~/.bashrc copy
+## ~/.bashrc copy
+###################
 if [[ -f "$HOME/.bashrc" ]]
 then
     mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
 fi
 ln -s -f "$PWD/files/bashrc" "$HOME/.bashrc"
 
+
+## ~/.bash_profile copy
+#########################
+
+if [[ -f "$HOME/.bash_profile" ]]
+then
+    mv "$HOME/.bash_profile" "$HOME/.bash_profile.bak"
+fi
+ln -s -f "$PWD/files/bash_profile" "$HOME/.bash_profile"
+
+
+## ~/.vimrc copy
+###################
+
 if [[ -f "$HOME/.vimrc" ]]
 then
-    mv "$HOME/.vimrc" "$HOME/.vimrc"
+    mv "$HOME/.vimrc" "$HOME/.vimrc.bak"
 fi
 ln -s -f "$PWD/files/vimrc" "$HOME/.vimrc"
-
-

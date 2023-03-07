@@ -34,10 +34,17 @@ alias update='yay -Syu'
 alias search='yay -Ss'
 alias installed='yay -Qs'
 
-alias server-admin='ssh root@roguearcade.duckdns.org -p 23515'
-alias roguearcade='ssh play@roguearcade.duckdns.org -p 23515'
+servercp() {
+    scp  -P 23515 -r "$1" root@roguearcade.duckdns.org:/root/music/
+}
+
+alias piadmin='ssh root@roguearcade.duckdns.org -p 23515'
+alias pirogue='ssh play@roguearcade.duckdns.org -p 23515'
+alias pispot='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/id_rsa spot@roguearcade.duckdns.org -p 23515'
+alias crawls='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@crawl.akrasiac.org'
 
 alias attach='tmux attach'
+alias detach='tmux detach'
 alias new='tmux new-session -d -s'
 
 alias vpn='protonvpn-cli'
