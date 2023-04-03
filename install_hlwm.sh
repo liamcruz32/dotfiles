@@ -17,7 +17,7 @@ done
 echo "Checking directory: HerbstluftWM"
 if [[ ! -d $HOME/.config/herstlufwm ]]
 then
-    mkdir -pv $HOME/.config/polybar
+    mkdir -pv $HOME/.config/herbstluftwm
 fi
 
 for file in $(ls -p $hlwm | grep -v /)

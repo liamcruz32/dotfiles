@@ -7,7 +7,7 @@ do
     echo "Checking directory: $dir"
     if [[ ! -d $HOME/.config/$dir ]]
     then
-        mkdir -pv $dir
+        mkdir -pv $HOME/.config/$dir
     fi
 
     for file in $(ls $PWD/config/$dir)
