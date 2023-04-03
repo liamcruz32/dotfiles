@@ -4,7 +4,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         source "$BASE16_SHELL/profile_helper.sh"
-base16_materia
+base16_material
 
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
         tmux new-session -A -s Main
@@ -29,11 +29,11 @@ function cd_up() {
 }
 alias up="cd_up"
 
-alias install='yay -S'
-alias remove='yay -Rsu'
-alias update='yay -Syu'
-alias search='yay -Ss'
-alias installed='yay -Qs'
+alias install='sudo pacman -S'
+alias remove='sudo pacman -Rsu'
+alias update='sudo pacman -Syu'
+alias search='sudo pacman -Ss'
+alias installed='sudo pacman -Qs'
 
 cfp() {
     scp  -P 23515 -r root@roguearcade.duckdns.org:$1 $2
@@ -50,5 +50,3 @@ alias crawls='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@c
 alias attach='tmux attach'
 alias detach='tmux detach'
 alias new='tmux new-session -d -s'
-
-alias vpn='protonvpn-cli'
