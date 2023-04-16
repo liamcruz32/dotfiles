@@ -35,9 +35,9 @@ hc keybind $Mod-b spawn firefox
 hc keybind $Mod-f spawn pcmanfm
 hc keybind $Mod-d spawn rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
-hc keybind XF86AudioRaiseVolume spawn amixer -D pulse sset Master 5%+
-hc keybind XF86AudioLowerVolume spawn amixer -D pulse sset Master 5%- 
-hc keybind XF86AudioMute spawn amixer sset Master toggle
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
+hc keybind XF86AudioMute spawn pactl set-sink-mute 0 toggle
 hc keybind Print spawn scrot $HOME/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png 
 
 ## NAVIGATION

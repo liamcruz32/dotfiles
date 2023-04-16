@@ -29,11 +29,11 @@ function cd_up() {
 }
 alias up="cd_up"
 
-alias install='sudo pacman -S'
-alias remove='sudo pacman -Rsu'
-alias update='sudo pacman -Syu'
-alias search='sudo pacman -Ss'
-alias installed='sudo pacman -Qs'
+alias install='yay -S'
+alias remove='yay -Rsu'
+alias update='yay -Syu'
+alias search='yay -Ss'
+alias installed='yay -Qs'
 
 cfp() {
     scp  -P 23515 -r root@roguearcade.duckdns.org:$1 $2
