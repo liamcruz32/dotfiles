@@ -7,7 +7,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 base16_material
 
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-        tmux new-session -A -s Main
+        tmux new-session -A -s hammer
 fi
 
 

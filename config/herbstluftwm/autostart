@@ -20,6 +20,10 @@ pgrep nm-applet || nm-applet &
 pgrep caffeine || caffeine &
 pgrep blueman-applet || blueman-applet &
 pgrep dunst || dunst &
+pgrep plank || plank &
+
+xinput set-prop 11 315 1
+xinput set-prop 11 323 1
 
 ## KEYBINDINGS
 ################
@@ -30,7 +34,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-q remove
 hc keybind $Mod-q close
 
-hc keybind $Mod-Return spawn alacritty
+hc keybind $Mod-t spawn alacritty
 hc keybind $Mod-b spawn firefox
 hc keybind $Mod-f spawn pcmanfm
 hc keybind $Mod-d spawn rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
@@ -54,9 +58,11 @@ hc keybind $Mod-Shift-l     shift right
 
 hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
+hc keybind $Mod-Return  split   explode
 
 resizestep=0.02
 hc keybind $Mod-Control-h       resize left +$resizestep
+hc keybind $Mod-Control-l       resize right +$resizestep
 hc keybind $Mod-Control-j       resize down +$resizestep
 hc keybind $Mod-Control-k       resize up +$resizestep
 
@@ -178,7 +184,7 @@ hc set mouse_recenter_gap 0
 # rules
 hc unrule -F
 hc rule focus=on # normally focus new clients
-hc rule floatplacement=none
+hc rule floatplacement=center
 
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
