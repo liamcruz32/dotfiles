@@ -15,19 +15,46 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export LANG=en_US.UTF-8
 
-alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -lh'
+# alias ls='ls --color=auto'
+# alias la='ls -a'
+# alias ll='ls -lh'
 
-alias mv='mv -v'
-alias cp='cp -v'
-alias mkdir='mkdir -pv'
+# alias mv='mv -v'
+# alias cp='cp -v'
+# alias mkdir='mkdir -pv'
 
-alias ..='cd ..'
-function cd_up() {
-    cd $(printf "%.s../" $(seq "$1"));
+# alias ..='cd ..'
+# function cd_up() {
+#     cd $(printf "%.s../" $(seq "$1"));
+# }
+# alias up="cd_up"
+
+alias ls='ls --group-directories-first --color=auto -w 120'
+alias ll='ls --group-directories-first -l'
+alias la='ll -a'
+alias lt='ll --tree'
+
+alias cp='cp --recursive --interactive --verbose --reflink=always'
+alias mv='mv --interactive --verbose'
+alias pwd="pwd | sed 's:$HOME:~:' | sed -E 's:(.*/)([^/]+):\x1b[32m\1\x1b[0m\x1b[1m\2\x1b[0m:'"
+alias p="pwd"
+
+alias c="cd"
+alias '..'='c ..'
+alias '...'='c ../..'
+alias '~'='command cd'
+
+function rm () {
+  if [ $# -eq 1 ] && [ -d "$1" ]; then
+    rm --verbose --interactive=once --recursive "$1";
+  else
+    rm --verbose --interactive=once "$@";
+  fi;
 }
-alias up="cd_up"
+
+mc () {
+  mkdir -p -- "$1" && cd -P -- "$1";
+}
 
 alias install='yay -S'
 alias remove='yay -Rsu'
@@ -50,3 +77,4 @@ alias crawls='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@c
 alias attach='tmux attach'
 alias detach='tmux detach'
 alias new='tmux new-session -d -s'
+[ 'xterm-256color' = 'xterm-kitty' ] && alias ssh='kitty +kitten ssh'

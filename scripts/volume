@@ -20,14 +20,14 @@
 #------------------------------------------------------------------------
 
 # The second parameter overrides the mixer selection
-# For PulseAudio users, eventually use "pulse"
+# For pipewire users, eventually use "pulse"
 # For Jack/Jack2 users, use "jackplug"
 # For ALSA users, you may use "default" for your primary card
 # or you may use hw:# where # is the number of the card desired
 if [[ -z "$MIXER" ]] ; then
     MIXER="default"
-    if command -v pulseaudio >/dev/null 2>&1 && pulseaudio --check ; then
-        # pulseaudio is running, but not all installations use "pulse"
+    if command -v pipewire >/dev/null 2>&1 && pipewire --check ; then
+        # pipewire is running, but not all installations use "pulse"
         if amixer -D pulse info >/dev/null 2>&1 ; then
             MIXER="pulse"
         fi
