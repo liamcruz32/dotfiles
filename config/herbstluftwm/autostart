@@ -12,7 +12,7 @@ hc keyunbind --all
 Mod=Mod4
 #
 # find the panel
-panel=~/.config/herbstluftwm/panel.sh
+panel=~/.config/polybar/polybarhlwm.sh
 [ -x "$panel" ] || panel=~/.config/polybar/polybarhlwm.sh
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
     # start it on each monitor
@@ -23,12 +23,13 @@ done
 #############
 ~/.screenlayout/monitor.sh
 # pgrep pcmanfm || pcmanfm -d &
-pcmanfm --desktop &
+pgrep pcmanfm || pcmanfm -d &
 pgrep picom || picom -b &
 pgrep dunst || dunst &
 pgrep plank || plank &
 pgrep nm-applet || nm-applet &
 pgrep blueman-applet || blueman-applet &
+nitrogen --restore
 
 xinput set-prop 10 315 1 &
 xinput set-prop 10 323 1 &
@@ -156,7 +157,7 @@ hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
 
 hc set show_frame_decorations 'focused_if_multiple'
-hc set default_frame_layout horizontal
+hc set default_frame_layout vertical
 # hc chain - split right 0.5 - focus right --level=frame - set_attr tags.focus.tiling.focused_frame.algorithm vertical
 hc set frame_bg_transparent on
 hc set frame_border_width 2

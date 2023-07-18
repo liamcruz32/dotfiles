@@ -30,16 +30,12 @@ fi
 
 ## ~/.bashrc copy
 ###################
-ln -s -f "$PWD/home/bashrc" "$HOME/.bashrc"
-
-## ~/.bash_profile copy
-#########################
-ln -s -f "$PWD/home/bash_profile" "$HOME/.bash_profile"
+ln -s -f "$PWD/config/bashrc" "$HOME/.bashrc"
 
 ## ~/.vimrc copy
 ###################
-ln -s -f "$PWD/home/vimrc" "$HOME/.vimrc"
+ln -s -f "$PWD/config/vimrc" "$HOME/.vimrc"
 
 ## ~/.tmux.conf copy
 ###################
-ln -s -f "$PWD/home/tmux.conf" "$HOME/.tmux.conf"
+ln -s -f "$PWD/config/tmux.conf" "$HOME/.tmux.conf"
