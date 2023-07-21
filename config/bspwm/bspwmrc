@@ -2,13 +2,13 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 bash $HOME/.screenlayout/monitor.sh
 
-pgrep pcmanfm || pcmanfm -d &
+# pgrep pcmanfm || pcmanfm --desktop &
+nitrogen --restore
 pgrep picom || picom -b &
 pgrep dunst || dunst &
 pgrep plank || plank &
 pgrep nm-applet || nm-applet &
 pgrep blueman-applet || blueman-applet &
-nitrogen --restore
 
 xinput set-prop 10 315 1 &
 xinput set-prop 10 323 1 &

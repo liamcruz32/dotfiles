@@ -20,12 +20,10 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                 case ${i:0:1} in
                     '.')
                         # the tag is empty
-                        # TODO Add your formatting tags
-                        
+                        echo "%{F#00000000}"
                         ;;
                     ':')
                         # the tag is not empty
-                        # TODO Add your formatting tags
                         echo "%{F#ffffff}"
                         ;;
                     '+')
@@ -34,7 +32,6 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                         ;;
                     '#')
                         # the tag is viewed on the specified MONITOR and it is focused.
-                        # TODO Add your formatting tags
                         echo  "%{B#e7e8eb}%{F#000}"
                         ;;
                     '-')

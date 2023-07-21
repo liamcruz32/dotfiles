@@ -71,7 +71,7 @@ textbox-prompt-colon{
     str:                         "  ";
     padding:                     10px 10px;
     border-radius:               5px;
-    background-color:            @bwhite;
+    background-color:            @searchbg;
     text-color:                  inherit;
 }
 entry {
@@ -80,7 +80,7 @@ entry {
     width:                       350px;
     padding:                     12px 16px;
     border-radius:               5px;
-    background-color:            @bwhite;
+    background-color:            @searchbg;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
