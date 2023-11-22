@@ -1,5 +1,6 @@
 * {
-    black: #263238;
+    searchbg: @bwhite;
+    black: #1e1e1e;
     red: #EC5F67;
     green: #8BD649;
     yellow: #FFCC00;
@@ -7,31 +8,32 @@
     magenta: #82AAFF;
     cyan: #80CBC4;
     white: #e7e8eb;
-    bblack: #707880;
+    bblack: #333333;
     bwhite: #FFFFFF;
+
     background: @white;
-    foreground: #000000;
+    foreground: @black;
 
-    active-background: @blue;
-    active-foreground: @bwhite;
-    normal-background: @background;
-    normal-foreground: @foreground;
-    urgent-background: @red;
-    urgent-foreground: @foreground;
+    active-background: @white;
+    active-foreground: @black;
+    normal-background: @white;
+    normal-foreground: @black;
+    urgent-background: @white;
+    urgent-foreground: @black;
 
-    alternate-active-background: @cyan;
-    alternate-active-foreground: @bwhite;
-    alternate-normal-background: @background;
-    alternate-normal-foreground: @foreground;
-    alternate-urgent-background: @background;
-    alternate-urgent-foreground: @foreground;
+    alternate-active-background: @white;
+    alternate-active-foreground: @black;
+    alternate-normal-background: @white;
+    alternate-normal-foreground: @black;
+    alternate-urgent-background: @white;
+    alternate-urgent-foreground: @black;
 
-    selected-active-background: @blue;
-    selected-active-foreground: @foreground;
-    selected-normal-background: @blue;
-    selected-normal-foreground: @foreground;
-    selected-urgent-background: @yellow;
-    selected-urgent-foreground: @foreground;
+    selected-active-background: @white;
+    selected-active-foreground: @black;
+    selected-normal-background: @white;
+    selected-normal-foreground: @black;
+    selected-urgent-background: @white;
+    selected-urgent-foreground: @black;
 
     background-color: @background;
     background-alt: @background;

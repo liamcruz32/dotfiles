@@ -6,6 +6,8 @@
 # gtk2=~/.gtkrc-2.0
 # sed -i 's/gtk-theme-name=.*/gtk-theme-name="Materia-dark"/' $gtk2
 # sed -i 's/gtk-icon-theme-name=.*/gtk-icon-theme-name="Papirus-Dark"/' $gtk2
+# bash=~/.bashrc
+# sed -i 's/base16_.*/base16_material-darker' $bash
 
 polybar=~/.config/polybar/config.ini
 sed -i 's/bg_color=.*/bg_color=${colors.materiaalt}/' $polybar

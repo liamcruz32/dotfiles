@@ -7,6 +7,9 @@
 # sed -i 's/gtk-theme-name=.*/gtk-theme-name="Arc-Lighter"/' $gtk2
 # sed -i 's/gtk-icon-theme-name=.*/gtk-icon-theme-name="Papirus-Light"/' $gtk2
 
+bash=~/.bashrc
+sed -i 's/base16_.*/base16_materia/' $bash
+
 polybar=~/.config/polybar/config.ini
 sed -i 's/bg_color=.*/bg_color=${colors.white}/' $polybar
 sed -i 's/bg_alt=.*/bg_alt=${colors.arcwhite}/' $polybar
