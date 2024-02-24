@@ -32,7 +32,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                         ;;
                     '#')
                         # the tag is viewed on the specified MONITOR and it is focused.
-                        echo  "%{B#e7e8eb}%{F#000}"
+                        echo  "%{B#dfdfdf}%{F#000}"
                         ;;
                     '-')
                         # the tag is viewed on a different MONITOR, but this monitor is not focused.

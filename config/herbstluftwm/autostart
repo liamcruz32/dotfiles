@@ -22,8 +22,8 @@ pgrep flameshot         || flameshot &
 pgrep -f protonmail-bridge || protonmail-bridge --noninteractive &
 nitrogen --restore
 
-xinput set-prop 10 315 1 &
-xinput set-prop 10 323 1 &
+xinput set-prop 10 314 1 &
+xinput set-prop 10 322 1 &
 
 
 ## SYSTEM KEYBINDINGS
@@ -103,7 +103,7 @@ hc unrule --all      # clear rules
 hc rule focus=on
 hc rule index=e
 hc rule switchtag=on
-hc rule floatplacement=center
+hc rule floatplacement=smart
 hc rule tabbed_max=true
 hc rule raise_on_focus=true
 hc rule fixedsize floating=on

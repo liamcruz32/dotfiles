@@ -69,6 +69,7 @@ nnoremap <silent><leader>f :NERDTreeToggle<CR>
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 inoremap kk <esc>
 inoremap jj <esc>
+vnoremap <C-c> "+y
 
 nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>

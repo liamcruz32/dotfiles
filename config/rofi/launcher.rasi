@@ -20,14 +20,14 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    northwest;
+    anchor:                      northwest;
     fullscreen:                  false;
-    width:                       600px;
+    width:                       500;
     height:                      350px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-    border-radius:               10px;
+    x-offset:                    4px;
+    y-offset:                    33px;
+    border-radius:               6px;
     /* properties for all widgets */
     enabled:                     true;
     cursor:                      "default";
@@ -72,16 +72,16 @@ textbox-prompt-colon{
     padding:                     10px 10px;
     border-radius:               5px;
     background-color:            @searchbg;
-    text-color:                  inherit;
+    text-color:                  @searchfg;
 }
 entry {
     enabled:                     true;
-    expand:                      false;
-    width:                       350px;
+    expand:                      true;
+    width:                       240px;
     padding:                     12px 16px;
     border-radius:               5px;
     background-color:            @searchbg;
-    text-color:                  inherit;
+    text-color:                  @searchfg;
     cursor:                      text;
     placeholder:                 "Search";
     placeholder-color:           inherit;
@@ -103,8 +103,8 @@ button {
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @blue;
-    text-color:                  @bwhite;
+    background-color:            @buttonbg;
+    text-color:                  @buttonfg;
 }
 
 /*****----- Listview -----*****/
@@ -142,24 +142,24 @@ element normal.normal {
     text-color:                  inherit;
 }
 element normal.urgent {
-    background-color:            @red;
+    background-color:            @background;
     text-color:                  @foreground;
 }
 element normal.active {
-    background-color:            @yellow;
-    text-color:                  @foreground;
+    background-color:            @buttonbg;
+    text-color:                  @buttonfg;
 }
 element selected.normal {
-    background-color:            @blue;
-    text-color:                  @bwhite;
+    background-color:            @buttonbg;
+    text-color:                  @buttonfg;
 }
 element selected.urgent {
-    background-color:            @yellow;
-    text-color:                  @foreground;
+    background-color:            @buttonbg;
+    text-color:                  @buttonfg;
 }
 element selected.active {
-    background-color:            @blue;
-    text-color:                  @foreground;
+    background-color:            @buttonbg;
+    text-color:                  @buttonfg;
 }
 element-icon {
     background-color:            transparent;
@@ -190,6 +190,6 @@ textbox {
 error-message {
     padding:                     12px;
     border-radius:               0px;
-    background-color:            @background;
+    background-color:            @foreground;
     text-color:                  @foreground;
 }

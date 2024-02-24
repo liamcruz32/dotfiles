@@ -15,3 +15,6 @@ do
         ln -s -f $HOME/dotfiles/config/$dir/$file $HOME/.config/$dir/$file
     done
 done
+
+ln -s -f $HOME/dotfiles/config/resolution/monitor.sh $HOME/.screenlayout/monitor.sh
+echo "sudo cp $HOME/dotfiles/config/resolution/monitors.xml /var/lib/gdm/.config/monitors.xml"
