@@ -11,6 +11,7 @@ Mod=Mod4
 ## AUTOSTART APPLICATIONS
 ###########################
 $HOME/.config/herbstluftwm/lasttag.sh &
+$HOME/.config/herbstluftwm/unminimize.sh
 $HOME/.screenlayout/monitor.sh &
 # pgrep pcmanfm           || pcmanfm --desktop &
 pgrep picom             || picom -b &
