@@ -3,3 +3,7 @@ sudo pacman -Syu xsel xorg-xinput leafpad tumbler webp-pixbuf-loader ffmpegthumb
 
 sudo systemctl enable bluetooth
 sudo systemctl enable gdm
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si

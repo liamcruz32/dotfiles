@@ -13,7 +13,7 @@ herbstclient --idle "attribute_changed" | {
             echo "  "${frame_layout}
             while $(herbstclient get_attr tags.focus.floating)
             do
-                    echo   floating
+                    echo "  floating"
                     break
             done
     done

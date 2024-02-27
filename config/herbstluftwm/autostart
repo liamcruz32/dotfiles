@@ -25,6 +25,8 @@ nitrogen --restore
 
 xinput set-prop 10 314 1 &
 xinput set-prop 10 322 1 &
+xinput set-prop 10 316 1 &
+xinput set-prop 10 324 1 &
 
 
 ## SYSTEM KEYBINDINGS
