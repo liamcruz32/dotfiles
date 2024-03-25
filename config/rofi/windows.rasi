@@ -1,12 +1,12 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser";
+	modi:                       "window";
     show-icons:                 true;
     display-drun:               "";
     display-run:                "";
-    display-filebrowser:        "";
-	drun-display-format:        "{name}";
+    display-window:             "";
+	window-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
 
@@ -20,13 +20,13 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    northwest;
-    anchor:                      northwest;
+    location:                    center;
+    anchor:                      center;
     fullscreen:                  false;
     width:                       500;
-    height:                      350px;
-    x-offset:                    4px;
-    y-offset:                    33px;
+    height:                      200;
+    x-offset:                    0px;
+    y-offset:                    0px;
     border-radius:               6px;
     /* properties for all widgets */
     enabled:                     true;
@@ -41,7 +41,7 @@ mainbox {
     spacing:                     0px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "inputbar", "listbox" ];
+    children:                    ["listbox" ];
 }
 
 listbox {
@@ -55,7 +55,7 @@ listbox {
 /*****----- Inputbar -----*****/
 inputbar {
     background-image:            url("/usr/local/backgrounds/background.png", width);
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     10px;
     padding:                     50px 50px;
     background-color:            transparent;
@@ -69,10 +69,10 @@ textbox-prompt-colon{
     enabled:                     true;
     expand:                      false;
     str:                         "  ";
-    padding:                     12px 6px;
+    padding:                     10px 10px;
     border-radius:               5px;
-    background-color:            @buttonbg;
-    text-color:                  @buttonfg;
+    background-color:            @searchbg;
+    text-color:                  @searchfg;
 }
 entry {
     enabled:                     true;
@@ -110,8 +110,8 @@ button selected {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     4;
-    lines:                       2;
+    columns:                     5;
+    lines:                       3;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;

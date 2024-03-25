@@ -13,6 +13,7 @@ Mod=Mod4
 $HOME/.config/herbstluftwm/lasttag.sh &
 $HOME/.config/herbstluftwm/unminimize.sh
 $HOME/.screenlayout/monitor.sh &
+
 # pgrep pcmanfm           || pcmanfm --desktop &
 pgrep picom             || picom -b &
 pgrep dunst             || dunst &
@@ -20,7 +21,6 @@ pgrep plank             || plank &
 pgrep nm-applet         || nm-applet &
 pgrep blueman-applet    || blueman-applet &
 pgrep flameshot         || flameshot &
-pgrep -f protonmail-bridge || protonmail-bridge --noninteractive &
 nitrogen --restore
 
 xinput set-prop 10 314 1 &
@@ -122,7 +122,7 @@ hc rule class=Protonvpn floating=on
 
 ## TAG SETTINGS
 #################
-tag_names=( {1..9} )
+tag_names=( {1..9} 0 )
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -142,13 +142,8 @@ done
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
-black="#263238"
 red="#EC5F67"
-green="#8BD649"
-yellow="#FFCC00"
-blue="#89DDFF"
-magenta="#82AAFF"
-cyan="#80CBC4"
+cyan="#5F8787"
 white="#e7e8eb"
 bblack="#707880"
 bwhite="#FFFFFF"
@@ -156,7 +151,7 @@ transparent="#00000000"
 
 # Titles
 ##########
-hc attr theme.title_color           $white
+hc attr theme.title_color           $cyan
 hc attr theme.title_height          14
 hc attr theme.title_when            multiple_tabs
 hc attr theme.title_font            'Noto Sans:size=10:weight=bold'
@@ -175,14 +170,14 @@ hc set frame_padding                0
 
 hc set frame_bg_transparent         on
 hc set frame_border_width           4
-hc set frame_border_active_color    $bwhite
+hc set frame_border_active_color    $cyan
 hc set frame_border_normal_color    $transparent
 hc set frame_normal_opacity = 0
 
-hc attr theme.border_width          3
-hc attr theme.floating.border_width 3
+hc attr theme.border_width          4
+hc attr theme.floating.border_width 4
 
-hc attr theme.active.color          $white
+hc attr theme.active.color          $cyan
 hc attr theme.normal.color          $transparent
 hc attr theme.urgent.color          $red
 
