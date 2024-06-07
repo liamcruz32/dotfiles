@@ -33,15 +33,8 @@ alias '...'='cd ../..'
 function up() {
     cd $(printf "%.s../" $(seq "$1"));
 }
-
-
-alias install='yay -S'
-alias remove='yay -Rsu'
-alias update='yay -Syu'
-alias search='yay -Ss'
-alias installed='yay -Qs'
-
-alias crawls='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@crawl.akrasiac.org'
+alias cao='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@crawl.akrasiac.org'
+alias cko='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key terminal@crawl.kelbi.org'
 
 m2w () {
     local address_in_home="$1"
@@ -52,3 +45,4 @@ alias attach='tmux attach'
 alias detach='tmux detach'
 alias new='tmux new-session -d -s'
 [ 'xterm-256color' = 'xterm-kitty' ] && alias ssh='kitty +kitten ssh'
+alias brogue='bash ~/roguelikes/BrogueCE/brogue'

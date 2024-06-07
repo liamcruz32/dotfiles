@@ -16,6 +16,7 @@ $HOME/.screenlayout/monitor.sh &
 
 # pgrep pcmanfm           || pcmanfm --desktop &
 pgrep picom             || picom -b &
+pgrep lxpolkit          || lxpolkit &
 pgrep dunst             || dunst &
 pgrep plank             || plank &
 pgrep nm-applet         || nm-applet &
@@ -23,10 +24,10 @@ pgrep blueman-applet    || blueman-applet &
 pgrep flameshot         || flameshot &
 nitrogen --restore
 
-xinput set-prop 10 314 1 &
-xinput set-prop 10 322 1 &
-xinput set-prop 10 316 1 &
-xinput set-prop 10 324 1 &
+xinput set-prop 11 323 1 &
+xinput set-prop 11 322 1 &
+xinput set-prop 11 330 1 &
+xinput set-prop 11 331 1 &
 
 
 ## SYSTEM KEYBINDINGS
@@ -50,7 +51,7 @@ hc keybind XF86AudioMute            spawn   pactl set-sink-mute 0 toggle
 hc keybind $Mod-t                   spawn   kitty
 hc keybind $Mod-b                   spawn   firefox
 hc keybind $Mod-f                   spawn   pcmanfm
-hc keybind $Mod-d                   spawn   rofi -modi drun -show drun -config ~/.config/rofi/launcher.rasi
+hc keybind $Mod-d                   spawn   rofi -modi drun -show drun -config $HOME/.config/rofi/launcher.rasi
 
 ## NAVIGATION
 ###############
@@ -90,12 +91,15 @@ hc keybind $Mod-Control-l           resize right +$resizestep
 hc keybind $Mod-Control-j           resize down +$resizestep
 hc keybind $Mod-Control-k           resize up +$resizestep
 
-hc keybind $Mod-s floating toggle
+hc keybind $Mod-s set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-s floating toggle 
 hc keybind $Mod-Shift-f fullscreen toggle
 hc keybind $Mod-space                                                           \
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical max grid    \
                , cycle_layout +1
+hc keybind $Mod-m set_attr clients.focus.minimized true
+hc keybind $Mod-Shift-m jumpto last-minimized
 
 hc mouseunbind --all
 hc mousebind $Mod-Button1 move
@@ -106,7 +110,7 @@ hc unrule --all      # clear rules
 hc rule focus=on
 hc rule index=e
 hc rule switchtag=on
-hc rule floatplacement=smart
+hc rule floatplacement=center
 hc rule tabbed_max=true
 hc rule raise_on_focus=true
 hc rule fixedsize floating=on
@@ -144,6 +148,7 @@ hc attr theme.floating.reset 1
 
 red="#EC5F67"
 cyan="#5F8787"
+redorange="#d64937"
 white="#e7e8eb"
 bblack="#707880"
 bwhite="#FFFFFF"
@@ -151,7 +156,7 @@ transparent="#00000000"
 
 # Titles
 ##########
-hc attr theme.title_color           $cyan
+hc attr theme.title_color           $redorange
 hc attr theme.title_height          14
 hc attr theme.title_when            multiple_tabs
 hc attr theme.title_font            'Noto Sans:size=10:weight=bold'
@@ -164,20 +169,20 @@ hc set smart_frame_surroundings     on
 hc set show_frame_decorations       'focused_if_multiple'
 
 hc set window_border_inner_width    0
-hc set window_gap                   5
-hc set frame_gap                    5
+hc set window_gap                   4
+hc set frame_gap                    4
 hc set frame_padding                0
 
 hc set frame_bg_transparent         on
 hc set frame_border_width           4
-hc set frame_border_active_color    $cyan
+hc set frame_border_active_color    $redorange
 hc set frame_border_normal_color    $transparent
 hc set frame_normal_opacity = 0
 
 hc attr theme.border_width          4
 hc attr theme.floating.border_width 4
 
-hc attr theme.active.color          $cyan
+hc attr theme.active.color          $redorange
 hc attr theme.normal.color          $transparent
 hc attr theme.urgent.color          $red
 

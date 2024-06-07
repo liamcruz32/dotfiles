@@ -1,9 +1,9 @@
 * {
-    buttonbg: #5F8787;
-    buttonfg: #FFFFFF;
-    background: #263238;
-    foreground: #FFFFFF;
-    searchbg: #dfdfdf;
+    buttonbg: #d64937;
+    buttonfg: #f9f9f9;
+    background: #333333;
+    foreground: #f9f9f9;
+    searchbg: #dedede;
     searchfg: #000000;
 
     active-background: @background;
