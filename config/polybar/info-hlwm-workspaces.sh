@@ -24,7 +24,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                         ;;
                     ':')
                         # the tag is not empty
-                        echo "%{F#ffffff}"
+                        echo "%{F#999999}"
                         ;;
                     '+')
                         # the tag is viewed on the specified MONITOR, but this monitor is not focused.
@@ -32,7 +32,7 @@ herbstclient --idle "tag_*" 2>/dev/null | {
                         ;;
                     '#')
                         # the tag is viewed on the specified MONITOR and it is focused.
-                        echo  "%{B#dfdfdf}%{F#000}"
+                        echo  "%{B#ffffff}%{F#000}"
                         ;;
                     '-')
                         # the tag is viewed on a different MONITOR, but this monitor is not focused.

@@ -10,25 +10,24 @@ Mod=Mod4
 
 ## AUTOSTART APPLICATIONS
 ###########################
-$HOME/.config/herbstluftwm/lasttag.sh &
-$HOME/.config/herbstluftwm/unminimize.sh &
-$HOME/.screenlayout/monitor.sh &
+$HOME/.config/herbstluftwm/movelasttag.sh &
+$HOME/.config/herbstluftwm/unminimize.sh
+# $HOME/.screenlayout/monitor.sh &
 
-pgrep picom                 || picom -b &
-pgrep lxpolkit              || lxpolkit &
-pgrep xfce4-power-manager   || xfce4-power-manager &
-pgrep dunst                 || dunst &
-pgrep plank                 || plank &
-pgrep pcmanfm           || pcmanfm --daemon-mode &
-pgrep nm-applet         || nm-applet &
-pgrep blueman-applet    || blueman-applet &
-pgrep flameshot         || flameshot &
-nitrogen --restore &
+# pgrep pcmanfm           || pcmanfm --desktop
+# pgrep picom             || picom -b &
+# pgrep lxpolkit          || lxpolkit &
+# pgrep dunst             || dunst &
+# pgrep plank             || plank &
+# pgrep nm-applet         || nm-applet &
+# pgrep blueman-applet    || blueman-applet &
+# pgrep flameshot         || flameshot &
+# nitrogen --restore
 
-xinput set-prop 11 323 1 &
-xinput set-prop 11 322 1 &
-xinput set-prop 11 330 1 &
-xinput set-prop 11 331 1 &
+# xinput set-prop 11 323 1 &
+# xinput set-prop 11 322 1 &
+# xinput set-prop 11 330 1 &
+# xinput set-prop 11 331 1 &
 
 
 ## SYSTEM KEYBINDINGS
@@ -40,18 +39,18 @@ hc keybind $Mod-Shift-r             reload
 hc keybind $Mod-q                   close
 hc keybind $Mod-Shift-q             remove
 
-hc keybind XF86MonBrightnessUp      spawn   light -A 5
-hc keybind XF86MonBrightnessDown    spawn   light -U 5
-hc keybind XF86AudioRaiseVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ +5%
-hc keybind XF86AudioLowerVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ -5%
-hc keybind XF86AudioMute            spawn   pactl set-sink-mute 0 toggle
+# hc keybind XF86MonBrightnessUp      spawn   light -A 5
+# hc keybind XF86MonBrightnessDown    spawn   light -U 5
+# hc keybind XF86AudioRaiseVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ +5%
+# hc keybind XF86AudioLowerVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ -5%
+# hc keybind XF86AudioMute            spawn   pactl set-sink-mute 0 toggle
 
 
 ## APPLICATIONS
 ################
-hc keybind $Mod-t                   spawn   kitty
+hc keybind $Mod-t                   spawn   mate-terminal
 hc keybind $Mod-b                   spawn   firefox
-hc keybind $Mod-f                   spawn   pcmanfm
+hc keybind $Mod-f                   spawn   caja
 hc keybind $Mod-d                   spawn   rofi -modi drun -show drun -config $HOME/.config/rofi/launcher.rasi
 
 ## NAVIGATION
@@ -112,8 +111,8 @@ hc rule focus=on
 hc rule index=e
 hc rule switchtag=on
 hc rule floatplacement=center
-hc rule tabbed_max=true
-hc rule raise_on_focus=true
+# hc rule tabbed_max=true
+# hc rule raise_on_focus=true
 hc rule fixedsize floating=on
 
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
@@ -130,7 +129,7 @@ hc rule class=Protonvpn floating=on
 tag_names=( {1..9} 0 )
 tag_keys=( {1..9} 0 )
 
-hc rename default "${tag_names[0]}" || true
+# hc rename default "${tag_names[0]}" || true
 for i in "${!tag_names[@]}" ; do
     hc add "${tag_names[$i]}"
     hc set_layout max
@@ -173,7 +172,7 @@ hc attr theme.urgent.title_color    "#ffffff"
 
 # Frame
 #########
-hc set smart_window_surroundings    off
+hc set smart_window_surroundings    on
 hc set smart_frame_surroundings     on
 hc set show_frame_decorations       'focused_if_multiple'
 
@@ -186,7 +185,7 @@ hc set frame_bg_transparent         on
 hc set frame_border_width           3
 hc set frame_border_active_color    $theme
 hc set frame_border_normal_color    $transparent
-hc set frame_normal_opacity = 0
+# hc set frame_normal_opacity = 0
 
 hc attr theme.border_width          3
 hc attr theme.floating.border_width 3
@@ -202,9 +201,9 @@ done
 hc unlock
 hc detect_monitors
 
-panel=~/.config/polybar/polybarhlwm.sh
-[ -x "$panel" ] || panel=~/.config/polybar/polybarhlwm.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
+# panel=~/.config/polybar/polybarhlwm.sh
+# [ -x "$panel" ] || panel=~/.config/polybar/polybarhlwm.sh
+# for monitor in $(hc list_monitors | cut -d: -f1) ; do
+#     # start it on each monitor
+#     "$panel" "$monitor" &
+# done

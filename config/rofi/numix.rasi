@@ -1,10 +1,14 @@
 * {
-    buttonbg: #d64937;
-    buttonfg: #f9f9f9;
     background: #333333;
-    foreground: #f9f9f9;
+    foreground: #00000000;
     searchbg: #dedede;
     searchfg: #000000;
+
+    buttonbg: #d64937;
+    buttonfg: #f9f9f9;
+    buttonaltbg: @background;
+    buttonaltfg: #efefef;
+    bordercolor: transparent;
 
     active-background: @background;
     normal-background: @background;
@@ -13,12 +17,12 @@
     normal-foreground: @foreground;
     urgent-foreground: @foreground;
 
-    alternate-active-background: @background;
-    alternate-normal-background: @background;
-    alternate-urgent-background: @background;
-    alternate-active-foreground: @foreground;
-    alternate-normal-foreground: @foreground;
-    alternate-urgent-foreground: @foreground;
+    alternate-active-background: @buttonaltbg;
+    alternate-normal-background: @buttonaltbg;
+    alternate-urgent-background: @buttonaltbg;
+    alternate-active-foreground: @buttonaltfg;
+    alternate-normal-foreground: @buttonaltfg;
+    alternate-urgent-foreground: @buttonaltfg;
 
     selected-active-background: @background;
     selected-normal-background: @background;

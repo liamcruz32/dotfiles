@@ -3,15 +3,14 @@
 configuration {
 	modi:                       "window";
     show-icons:                 true;
-    display-drun:               "";
-    display-run:                "";
-    display-window:             "";
+    display-window:             "";
 	window-display-format:        "{name}";
-	window-format:              "{w} · {c} · {t}";
+	window-format:              "{i}";
+	/* window-format:              "{w} · {c} · {t}"; */
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/theme.rasi" 
+@import "~/.config/rofi/raleigh.rasi" 
 * {
     font:              "Noto Sans 11";
 }
@@ -20,14 +19,14 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    2;
-    anchor:                      center;
+    location:                    north;
+    anchor:                      north;
     fullscreen:                  false;
     width:                       100;
-    height:                      200;
+    height:                      300;
     x-offset:                    0px;
     y-offset:                    33px;
-    border-radius:               6px;
+    border-radius:               0px;
     /* properties for all widgets */
     enabled:                     true;
     cursor:                      "default";
@@ -38,10 +37,10 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
+    spacing:                     10px;
     background-color:            transparent;
-    orientation:                 horizontal;
-    children:                    ["listbox" ];
+    orientation:                 vertical;
+    children:                    ["listbox"];
 }
 
 listbox {
@@ -52,40 +51,20 @@ listbox {
     children:                    [ "message", "listview" ];
 }
 
-/*****----- Mode Switcher -----*****/
-mode-switcher{
-    enabled:                     true;
-    spacing:                     10px;
-    background-color:            transparent;
-    text-color:                  @foreground;
-}
-button {
-    width:                       45px;
-    padding:                     12px;
-    border-radius:               5px;
-    background-color:            @background;
-    text-color:                  inherit;
-    cursor:                      pointer;
-}
-button selected {
-    background-color:            @buttonbg;
-    text-color:                  @buttonfg;
-}
-
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     5;
+    columns:                     1;
     lines:                       3;
     cycle:                       true;
-    dynamic:                     true;
+    dynamic:                     false;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
+    fixed-height:                false;
+    fixed-columns:               false;
     spacing:                     10px;
-    background-color:            transparent;
+    background-color:            @transparent;
     text-color:                  @foreground;
     cursor:                      "default";
     
@@ -138,23 +117,4 @@ element-text {
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
-}
-
-/*****----- Message -----*****/
-message {
-    background-color:            transparent;
-}
-textbox {
-    padding:                     12px;
-    border-radius:               5px;
-    background-color:            @background;
-    text-color:                  @foreground;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
-}
-error-message {
-    padding:                     12px;
-    border-radius:               0px;
-    background-color:            @foreground;
-    text-color:                  @foreground;
 }

@@ -6,7 +6,7 @@
     # Which monitor should the notifications be displayed on.
     monitor = 0
 
-    frame_color = "#dfdfdf"
+    frame_color = "#476178"
     font = Noto Sans Bold 10
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -293,15 +293,15 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#263238"
-    foreground = "#efefef"
+    background = "#dcdad5"
+    foreground = "#222222"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
 
 [urgency_normal]
-    background = "#263238"
-    foreground = "#dfdfdf"
+    background = "#fdfdfd"
+    foreground = "#222222"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png

@@ -11,19 +11,18 @@ Mod=Mod4
 ## AUTOSTART APPLICATIONS
 ###########################
 $HOME/.config/herbstluftwm/lasttag.sh &
-$HOME/.config/herbstluftwm/unminimize.sh &
+$HOME/.config/herbstluftwm/unminimize.sh
 $HOME/.screenlayout/monitor.sh &
 
-pgrep picom                 || picom -b &
-pgrep lxpolkit              || lxpolkit &
-pgrep xfce4-power-manager   || xfce4-power-manager &
-pgrep dunst                 || dunst &
-pgrep plank                 || plank &
-pgrep pcmanfm           || pcmanfm --daemon-mode &
+# pgrep pcmanfm           || pcmanfm --desktop
+pgrep picom             || picom -b &
+pgrep lxpolkit          || lxpolkit &
+pgrep dunst             || dunst &
+pgrep plank             || plank &
 pgrep nm-applet         || nm-applet &
 pgrep blueman-applet    || blueman-applet &
 pgrep flameshot         || flameshot &
-nitrogen --restore &
+nitrogen --restore
 
 xinput set-prop 11 323 1 &
 xinput set-prop 11 322 1 &

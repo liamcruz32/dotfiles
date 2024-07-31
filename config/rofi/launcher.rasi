@@ -1,17 +1,15 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser";
+	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/theme.rasi" 
+@import "~/.config/rofi/raleigh.rasi" 
 * {
     font:              "Noto Sans 11";
 }
@@ -24,14 +22,17 @@ window {
     anchor:                      northwest;
     fullscreen:                  false;
     width:                       500;
-    height:                      350px;
-    x-offset:                    4px;
-    y-offset:                    33px;
-    border-radius:               6px;
+    height:                      282px;
+    x-offset:                    0px;
+    y-offset:                    26px;
+    border-radius:               0px;
     /* properties for all widgets */
     enabled:                     true;
     cursor:                      "default";
     background-color:            @background;
+    border:                      2px;
+    border-radius:               0px;
+    border-color:                @bordercolor;
     padding:                     2px;
 }
 
@@ -54,32 +55,35 @@ listbox {
 
 /*****----- Inputbar -----*****/
 inputbar {
-    background-image:            url("/usr/local/backgrounds/background.png", width);
     enabled:                     true;
     spacing:                     10px;
-    padding:                     50px 50px;
+    padding:                     15px 15px;
     background-color:            transparent;
     text-color:                  @foreground;
     orientation:                 horizontal;
-    children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];
+    children:                    [ "textbox-prompt-colon", "entry" ];
     border-radius:               10px 10px 0px 0px;
 
 }
+
 textbox-prompt-colon{
-    enabled:                     true;
+    enabled:                     false;
     expand:                      false;
     str:                         "  ";
-    padding:                     12px 6px;
-    border-radius:               5px;
+    padding:                     6px 6px;
+    border-radius:               2px;
     background-color:            @buttonbg;
     text-color:                  @buttonfg;
 }
+
 entry {
     enabled:                     true;
     expand:                      true;
     width:                       240px;
     padding:                     12px 16px;
-    border-radius:               5px;
+    border-radius:               2px;
+    border-color:                @bordercolor;
+    border:                      2px;
     background-color:            @searchbg;
     text-color:                  @searchfg;
     cursor:                      text;
@@ -87,25 +91,6 @@ entry {
     placeholder-color:           inherit;
 }
 
-/*****----- Mode Switcher -----*****/
-mode-switcher{
-    enabled:                     true;
-    spacing:                     10px;
-    background-color:            transparent;
-    text-color:                  @foreground;
-}
-button {
-    width:                       45px;
-    padding:                     12px;
-    border-radius:               5px;
-    background-color:            @background;
-    text-color:                  inherit;
-    cursor:                      pointer;
-}
-button selected {
-    background-color:            @buttonbg;
-    text-color:                  @buttonfg;
-}
 
 /*****----- Listview -----*****/
 listview {
@@ -119,11 +104,10 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    spacing:                     10px;
+    spacing:                     3px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
-    
 }
 
 /*****----- Elements -----*****/
@@ -131,42 +115,53 @@ element {
     enabled:                     true;
     spacing:                     10px;
     padding:                     12px;
-    border-radius:               5px;
-    background-color:            transparent;
+    border-radius:               2px;
+    border:                      2px;
+    border-color:                @bordercolor;
     text-color:                  @foreground;
     cursor:                      pointer;
     orientation:                 vertical;
 }
+
 element normal.normal {
-    background-color:            inherit;
-    text-color:                  inherit;
+    background-color:            @buttonaltbg;
+    border:                      2px;
+    border-color:                @bordercolor;
+    text-color:                  @buttonaltfg;
 }
+
 element normal.urgent {
-    background-color:            @background;
+    background-color:            @buttonaltbg;
     text-color:                  @foreground;
 }
+
 element normal.active {
     background-color:            @buttonbg;
     text-color:                  @buttonfg;
 }
+
 element selected.normal {
     background-color:            @buttonbg;
     text-color:                  @buttonfg;
 }
+
 element selected.urgent {
     background-color:            @buttonbg;
     text-color:                  @buttonfg;
 }
+
 element selected.active {
     background-color:            @buttonbg;
     text-color:                  @buttonfg;
 }
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        30px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -182,7 +177,8 @@ message {
 textbox {
     padding:                     12px;
     border-radius:               5px;
-    background-color:            @background;
+    /* background-color:            @background; */
+    background-color:            #ffffff;
     text-color:                  @foreground;
     vertical-align:              0.5;
     horizontal-align:            0.5;
