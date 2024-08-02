@@ -1,9 +1,8 @@
 #!/bin/bash
-sudo apt install xsel tumbler webp-pixbuf-loader ffmpegthumbnailer totem evince herbstluftwm picom dunst polybar acpi rofi tmux nitrogen arandr lxappearance blueman pcmanfm transmission-gtk gthumb gimp papirus-icon-theme pipewire lightdm-gtk-greeter flameshot kitty gnome-keyring
-
+yay -Syu acpi arandr atril base base-devel blueman caja caja-actions caja-audio-video-properties caja-image-converter caja-open-terminal caja-sendto caja-share caja-wallpaper caja-xattr-tags darktable dunst efibootmgr elementary-icon-theme engrampa eom evince ffmpegthumbnailer firefox gimp git gnome-keyring gnome-themes-extra gst-plugin-pipewire gtk-engine-murrine gvim herbstluftwm i3-wm i3blocks i3lock i3status intel-media-driver intel-ucode krita libpulse libreoffice-fresh libva-intel-driver libva-mesa-driver lightdm-gtk-greeter linux linux-firmware lvm2 lxappearance man-db man-pages marco mate-applets mate-backgrounds mate-calc mate-control-center mate-icon-theme mate-icon-theme-faenza mate-media mate-menus mate-netbook mate-notification-daemon mate-panel mate-polkit mate-power-manager mate-screensaver mate-sensors-applet mate-session-manager mate-settings-daemon mate-system-monitor mate-terminal mate-themes mate-user-guide mate-user-share mate-utils mozo network-manager-applet networkmanager noto-fonts noto-fonts-emoji noto-fonts-extra picom pipewire pipewire-alsa pipewire-jack pipewire-pulse plank pluma polybar rofi sassc steam tmux totem transmission-gtk ttf-dejavu-nerd ttf-font-awesome ttf-liberation ttf-liberation-mono-nerd ttf-noto-nerd vulkan-intel vulkan-radeon webp-pixbuf-loader wget wireplumber xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vmware xorg-server xorg-xinit xorg-xkill xsel zram-generator --needed
 # sudo systemctl enable bluetooth
-# sudo systemctl enable gdm
+#sudo systemctl enable gdm
 
-# git clone https://aur.archlinux.org/yay.git
-# cd yay
-# makepkg -si
+#git clone https://aur.archlinux.org/yay.git
+#cd yay
+#makepkg -si

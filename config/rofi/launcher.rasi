@@ -9,7 +9,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/raleigh.rasi" 
+@import "~/.config/rofi/bluementa.rasi" 
 * {
     font:              "Noto Sans 11";
 }
@@ -23,8 +23,8 @@ window {
     fullscreen:                  false;
     width:                       500;
     height:                      282px;
-    x-offset:                    0px;
-    y-offset:                    26px;
+    x-offset:                    4px;
+    y-offset:                    33px;
     border-radius:               0px;
     /* properties for all widgets */
     enabled:                     true;

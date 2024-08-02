@@ -33,17 +33,17 @@ alias '...'='cd ../..'
 function up() {
     cd $(printf "%.s../" $(seq "$1"));
 }
-alias cao='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@crawl.akrasiac.org'
-alias cko='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key terminal@crawl.kelbi.org'
 
-m2w () {
-    local address_in_home="$1"
-    scp $address_in_home osmc@192.168.0.12:/media/Movies
-}
-
+# [ 'xterm-256color' = 'xterm-kitty' ] && alias ssh='kitty +kitten ssh'
 alias attach='tmux attach'
 alias detach='tmux detach'
 alias new='tmux new-session -d -s'
-[ 'xterm-256color' = 'xterm-kitty' ] && alias ssh='kitty +kitten ssh'
-alias brogue='bash ~/games/BrogueCE/brogue'
-alias ia='/home/liamcruz/games/ia/build/ia'
+alias cao='ssh -o PubkeyAcceptedKeyTypes=ssh-rsa -i ~/.ssh/crawl_key joshua@crawl.akrasiac.org'
+
+alias install='yay -S'
+alias update='yay -Syu'
+alias remove='yay -Rs'
+alias search='yay -Ss'
+alias explicit='pacman -Qqen'
+alias aur='pacman -Qqem'
+alias autopurge='sudo pacman -Qdtq | sudo pacman -Rns -'

@@ -10,48 +10,49 @@ Mod=Mod4
 
 ## AUTOSTART APPLICATIONS
 ###########################
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# /usr/bin/gnome-keyring-daemon --start --components=ssh &
+# caja -n --force-desktop &
+
+# pgrep picom                 || picom -b &
+# pgrep mate-power-manager    || mate-power-manager &
+# pgrep dunst                 || dunst &
+# pgrep plank                 || plank &
+# pgrep nm-applet             || nm-applet &
+# pgrep blueman-applet        || blueman-applet &
+# pgrep flameshot             || flameshot &
+
 $HOME/.config/herbstluftwm/lasttag.sh &
 $HOME/.config/herbstluftwm/unminimize.sh &
-$HOME/.screenlayout/monitor.sh &
+# $HOME/.screenlayout/monitor.sh &
 
-pgrep picom                 || picom -b &
-pgrep lxpolkit              || lxpolkit &
-pgrep xfce4-power-manager   || xfce4-power-manager &
-pgrep dunst                 || dunst &
-pgrep plank                 || plank &
-pgrep pcmanfm           || pcmanfm --daemon-mode &
-pgrep nm-applet         || nm-applet &
-pgrep blueman-applet    || blueman-applet &
-pgrep flameshot         || flameshot &
-nitrogen --restore &
-
-xinput set-prop 11 323 1 &
-xinput set-prop 11 322 1 &
-xinput set-prop 11 330 1 &
-xinput set-prop 11 331 1 &
+# xinput set-prop 11 323 1 &
+# xinput set-prop 11 322 1 &
+# xinput set-prop 11 330 1 &
+# xinput set-prop 11 331 1 &
 
 
 ## SYSTEM KEYBINDINGS
 #######################
 
-hc keybind $Mod-Shift-e             quit
+# hc keybind $Mod-Shift-e             quit
 hc keybind $Mod-Shift-r             reload
 
 hc keybind $Mod-q                   close
 hc keybind $Mod-Shift-q             remove
 
-hc keybind XF86MonBrightnessUp      spawn   light -A 5
-hc keybind XF86MonBrightnessDown    spawn   light -U 5
-hc keybind XF86AudioRaiseVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ +5%
-hc keybind XF86AudioLowerVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ -5%
-hc keybind XF86AudioMute            spawn   pactl set-sink-mute 0 toggle
+# hc keybind XF86MonBrightnessUp      spawn   light -A 5
+# hc keybind XF86MonBrightnessDown    spawn   light -U 5
+# hc keybind XF86AudioRaiseVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ +5%
+# hc keybind XF86AudioLowerVolume     spawn   pactl set-sink-volume @DEFAULT_SINK@ -5%
+# hc keybind XF86AudioMute            spawn   pactl set-sink-mute 0 toggle
 
 
 ## APPLICATIONS
 ################
-hc keybind $Mod-t                   spawn   kitty
+hc keybind $Mod-t                   spawn   mate-terminal
 hc keybind $Mod-b                   spawn   firefox
-hc keybind $Mod-f                   spawn   pcmanfm
+hc keybind $Mod-f                   spawn   caja
 hc keybind $Mod-d                   spawn   rofi -modi drun -show drun -config $HOME/.config/rofi/launcher.rasi
 
 ## NAVIGATION
@@ -150,24 +151,25 @@ hc attr theme.floating.reset 1
 urgent="#EC5F67"
 numix="#d64937"
 raleigh="#fdfdfd"
-adwaita="#F6D32D"
+arc="#E7E8EB"
+bluementa="#D4D4D4"
 transparent="#00000000"
 
-theme=$raleigh
+theme=$bluementa
 
 # Titles
 ##########
 # hc attr theme.title_color           $theme
 hc attr theme.title_font            'Noto Sans:size=10:weight=bold'
-hc attr theme.title_height          14
-hc attr theme.title_depth           4
+hc attr theme.title_height          16
+hc attr theme.title_depth           2
 hc attr theme.title_when            multiple_tabs
 hc attr theme.title_align           center
 
 hc attr theme.active.color          $theme
-hc attr theme.active.title_color    "#222222"
-hc attr theme.normal.color          "#9c9a94"
-hc attr theme.normal.title_color    "#dedede"
+hc attr theme.active.title_color    "#444444"
+hc attr theme.normal.color          "#adadad"
+hc attr theme.normal.title_color    "#dddddd"
 hc attr theme.urgent.color          $urgent
 hc attr theme.urgent.title_color    "#ffffff"
 
@@ -178,18 +180,18 @@ hc set smart_frame_surroundings     on
 hc set show_frame_decorations       'focused_if_multiple'
 
 hc set window_gap                   4
-hc set frame_gap                    0
+hc set frame_gap                    3
 hc set frame_padding                0
 hc set window_border_inner_width    0
 
 hc set frame_bg_transparent         on
-hc set frame_border_width           3
+hc set frame_border_width           4
 hc set frame_border_active_color    $theme
 hc set frame_border_normal_color    $transparent
 hc set frame_normal_opacity = 0
 
-hc attr theme.border_width          3
-hc attr theme.floating.border_width 3
+hc attr theme.border_width          4
+hc attr theme.floating.border_width 4
 
 for state in active urgent normal ; do
     hc substitute C theme.${state}.inner_color \
@@ -202,9 +204,9 @@ done
 hc unlock
 hc detect_monitors
 
-panel=~/.config/polybar/polybarhlwm.sh
-[ -x "$panel" ] || panel=~/.config/polybar/polybarhlwm.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
+# panel=~/.config/polybar/polybarhlwm.sh
+# [ -x "$panel" ] || panel=~/.config/polybar/polybarhlwm.sh
+# for monitor in $(hc list_monitors | cut -d: -f1) ; do
+#     # start it on each monitor
+#     "$panel" "$monitor" &
+# done
