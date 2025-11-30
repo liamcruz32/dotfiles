@@ -17,7 +17,7 @@ Mod=Mod4
 # pgrep picom                 || picom -b &
 # pgrep mate-power-manager    || mate-power-manager &
 # pgrep dunst                 || dunst &
-# pgrep plank                 || plank &
+pgrep plank                 || plank &
 # pgrep nm-applet             || nm-applet &
 # pgrep blueman-applet        || blueman-applet &
 # pgrep flameshot             || flameshot &
@@ -35,7 +35,7 @@ $HOME/.config/herbstluftwm/unminimize.sh &
 ## SYSTEM KEYBINDINGS
 #######################
 
-# hc keybind $Mod-Shift-e             quit
+hc keybind $Mod-Shift-e             quit
 hc keybind $Mod-Shift-r             reload
 
 hc keybind $Mod-q                   close
@@ -166,10 +166,10 @@ hc attr theme.title_depth           2
 hc attr theme.title_when            multiple_tabs
 hc attr theme.title_align           center
 
-hc attr theme.active.color          $theme
-hc attr theme.active.title_color    "#444444"
-hc attr theme.normal.color          "#adadad"
-hc attr theme.normal.title_color    "#dddddd"
+hc attr theme.active.color          "#F9F9FB"
+hc attr theme.active.title_color    "#000000"
+hc attr theme.normal.color          "#282A33"
+hc attr theme.normal.title_color    "#777777"
 hc attr theme.urgent.color          $urgent
 hc attr theme.urgent.title_color    "#ffffff"
 
@@ -177,21 +177,21 @@ hc attr theme.urgent.title_color    "#ffffff"
 #########
 hc set smart_window_surroundings    off
 hc set smart_frame_surroundings     on
-hc set show_frame_decorations       'focused_if_multiple'
+hc set show_frame_decorations       'if_multiple'
 
-hc set window_gap                   4
+hc set window_gap                   0
 hc set frame_gap                    3
 hc set frame_padding                0
 hc set window_border_inner_width    0
 
 hc set frame_bg_transparent         on
-hc set frame_border_width           4
+hc set frame_border_width           3
 hc set frame_border_active_color    $theme
 hc set frame_border_normal_color    $transparent
 hc set frame_normal_opacity = 0
 
-hc attr theme.border_width          4
-hc attr theme.floating.border_width 4
+hc attr theme.border_width          3
+hc attr theme.floating.border_width 3
 
 for state in active urgent normal ; do
     hc substitute C theme.${state}.inner_color \

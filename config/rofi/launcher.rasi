@@ -9,7 +9,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/bluementa.rasi" 
+@import "~/.config/rofi/qogir.rasi" 
 * {
     font:              "Noto Sans 11";
 }
