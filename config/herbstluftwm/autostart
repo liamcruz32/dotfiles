@@ -113,7 +113,7 @@ hc rule focus=on
 hc rule index=e
 hc rule switchtag=on
 hc rule floatplacement=center
-hc rule tabbed_max=true
+hc rule tabbed_max=false
 hc rule raise_on_focus=true
 hc rule fixedsize floating=on
 
@@ -163,7 +163,7 @@ theme=$bluementa
 hc attr theme.title_font            'Noto Sans:size=10:weight=bold'
 hc attr theme.title_height          16
 hc attr theme.title_depth           2
-hc attr theme.title_when            multiple_tabs
+hc attr theme.title_when            never
 hc attr theme.title_align           center
 
 hc attr theme.active.color          "#F9F9FB"

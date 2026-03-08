@@ -4,6 +4,7 @@ filetype plugin on
 filetype indent on
 syntax on
 let mapleader=" "
+set nocompatible
 set number relativenumber
 set cursorline
 set tabstop=4
@@ -19,8 +20,18 @@ au GUIEnter * set vb t_vb
 let g:python_highlight_all = 1
 set mouse=a
 
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 
-" }}}
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType textile call lexical#init()
+  autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
 
 
 " PLUGINS ---------------------------------------------------------------- {{{
@@ -29,7 +40,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'preservim/vimux'
     Plug 'godlygeek/tabular'
-    Plug 'preservim/vim-markdown'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     " Language -------------------------------
@@ -38,6 +48,13 @@ call plug#begin('~/.vim/plugged')
     " Appearance -----------------------------
     Plug 'itchyny/lightline.vim'
     Plug 'chriskempson/base16-vim'
+
+    Plug 'junegunn/goyo.vim'
+    Plug 'preservim/vim-pencil'
+    Plug 'preservim/vim-markdown'
+    Plug 'preservim/vim-litecorrect'
+    Plug 'preservim/vim-lexical'
+
 call plug#end()
 
 let base16colorspace=256
@@ -51,6 +68,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:csv_default_delim=','
 " }}}
+
 let g:vim_markdown_conceal = 2
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_math = 1
@@ -76,6 +94,9 @@ nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
 
+nnoremap <silent><leader>h gT
+nnoremap <silent><leader>l gt
+
 nnoremap <silent><leader>1 1gt<CR>
 nnoremap <silent><leader>2 2gt<CR>
 nnoremap <silent><leader>3 3gt<CR>
@@ -86,7 +107,7 @@ nnoremap <silent><leader>7 7gt<CR>
 nnoremap <silent><leader>8 8gt<CR>
 nnoremap <silent><leader>9 9gt<CR>
 
-nnoremap <C-n> :tabnew 
+nnoremap <silent><leader>t :tabnew 
 
 set splitbelow
 set splitright
